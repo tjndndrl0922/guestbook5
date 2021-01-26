@@ -5,7 +5,7 @@
 	
 	<!-- 쿼리문 작성 -->
 	<!-- GuestBookVo Map -->
-	<resultMap id="resultMapGuestVo" type="com.javaex.vo.GuestBookVo" >
+	<resultMap id="resultMapGuestVo" type="GuestBookVo" >
 	    <result column="no" property="no" />
 	    <result column="name" property="name" />
 	    <result column="password" property="password" />
@@ -25,14 +25,14 @@
 	    ]]>
 	</select>
 	
-	<insert id="insert" parameterType="com.javaex.vo.GuestBookVo">
+	<insert id="insert" parameterType="GuestBookVo">
 		<![CDATA[
 			insert into guestbook
 			values(seq_no.nextval, #{name}, #{password}, #{content}, sysdate)
 		]]>
 	</insert>
 	
-	<delete id="delete" parameterType="com.javaex.vo.GuestBookVo">
+	<delete id="delete" parameterType="GuestBookVo">
 		<![CDATA[
 			delete from guestbook
 			where no = #{no}
